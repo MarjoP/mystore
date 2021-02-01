@@ -13,6 +13,7 @@ import { ShippingComponent } from './shipping/shipping.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CartService } from './cart.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProductListComponent,
     ProductAlertsComponent,
     CartComponent,
-    ShippingComponent
+    ShippingComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

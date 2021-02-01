@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { fromEventPattern } from 'rxjs';
+import { CartService } from '../cart.service';
 import { products } from '../products';
 
 @Component({
@@ -10,7 +11,8 @@ import { products } from '../products';
 export class ProductListComponent implements OnInit {
   products = products;
 
-  constructor() { }
+
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
   }
@@ -21,5 +23,10 @@ export class ProductListComponent implements OnInit {
 
   onNotify() {
     window.alert('You will be notified when the product goes on sale');
+  }
+
+  addToCart(product) {
+    window.alert('Your product has been added to the cart!');
+    this.cartService.addToCart(product);
   }
 }

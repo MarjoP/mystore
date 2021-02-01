@@ -1,20 +1,43 @@
-<h2>Products</h2>
 
-<div *ngFor="let product of products; index as productId">
-  <h3>
-    <a [title]="product.name + ' details'" [routerLink]="['/products', productId]">
-    {{ product.name }}
-    </a>
-  </h3>
+<div class="imgCont">
+<img class="image bigImg " src="assets/iso-iphone-xs.jpg">
+</div>
+<h2 class="m-3"><b>Phone Models</b></h2>
 
-  <p *ngIf="product.description">
-    Description: {{ product.description }}
-  </p>
+<div  class="card-deck">
+<div class="card" *ngFor="let product of products; index as productId">
 
-  <button (click)="share()">
-    Share
-  </button>
+    <img class="smallImg card-img-top mx-auto" src="{{product.imgUrl}}">
 
-  <app-product-alerts [product]="product" (notify)="onNotify()"></app-product-alerts>
+    <div class="card-body">
+      <h5>
+        <b>
+        <a [title]="product.name + ' details'" [routerLink]="['/products', productId]">
+        {{ product.name }}
+        </a>
+      </b>
+      </h5>
+      <p>{{ product.price | currency }}</p>
+      <p class="desc" *ngIf="product.description">
+        Description: {{ product.description }}
+      </p>
+      <div class="buttons">
+        <button class="btn btn-info ">Buy Now</button>
+      <button class="btn btn-primary m-2" (click)="share()">
+        <i class="material-icons">facebook</i>
+      </button>
+      <button class="btn btn-primary m-2" (click)="share()">
+        <i class="material-icons">email</i>
+      </button>
+      <button class="btn btn-primary m-2" (click)="share()">
+        <i class="material-icons">send_to_mobile</i>
+      </button>
+    </div>
+
+      <app-product-alerts [product]="product" (notify)="onNotify()"></app-product-alerts>
+    </div>
+  </div>
+
 
 </div>
+
